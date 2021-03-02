@@ -24,9 +24,9 @@ network_manager_vpnc_package: network-manager-vpnc
 p7zip_package: p7zip-full
 packer_version: 1.6.5
 ssh_askpass_package: ssh-askpass-gnome
-steam_package: steam-installer
+steam_package: steam
 terraform_version: 0.13.5
 vagrant_version: 2.2.14
-virtualbox_package: virtualbox
+virtualbox_package: virtualbox-6.1
 wireless_tools_package: wireless-tools
 wpa_supplicant_package: wpasupplicant

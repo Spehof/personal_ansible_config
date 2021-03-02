@@ -9,7 +9,10 @@
 	* Run roles "base" for all hosts  (default configs, users, etc.)
 	* Ryn role "workstation" for machine from hosts file, also run role "server"
 	* When the roles have done their job starting "end of run cleanup and reporting" (cleanup package cache, etc.)
-	* And after all starting check completion status and send completion alert using 2 playbooks - "playbooks/send"
+	* And after all starting check completion status and send completion alert
+		* "send_completion_alert" - send succsess alert in Telegram (you can also add sending to web etc.)
+		* "send_failure_alert" - according send failure alert and clear cache (rm -rf \~/.ansible)
+		* p.s. telegram chat id and telegram token - group_vars/all (can use sys vars or Vault)
 
 
 The folder structure breaks down like this:
