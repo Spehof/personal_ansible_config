@@ -2,6 +2,16 @@
 
 ## How does it work?
 
+1. I uses Ansible pull.
+
+2. Ansible check this Playbook - local.yml and starting it.
+	* First of all "tasks to complete before running roles" (update cache etc.)
+	* Run roles "base" for all hosts  (default configs, users, etc.)
+	* Ryn role "workstation" for machine from hosts file, also run role "server"
+	* When the roles have done their job starting "end of run cleanup and reporting" (cleanup package cache, etc.)
+	* And after all starting check completion status and send completion alert using 2 playbooks - "playbooks/send"
+
+
 The folder structure breaks down like this:
 
 **local.yml**: This is the Playbook that Ansible expects to find by default in pull-mode, think of it as an "index" of sorts that pulls other Playbooks in.
@@ -34,4 +44,4 @@ After it's run for the first time manually, this Ansible config creates its own 
 
 ## How do I run it?
 
-ansible-pull -U https://github.com/Spehof/personal_ansible_config.git
+<ansible-pull -U https://github.com/Spehof/personal_ansible_config.git>
