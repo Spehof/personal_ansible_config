@@ -15,7 +15,7 @@
 		* p.s. telegram chat id and telegram token - group_vars/all (can use sys vars or Vault)
 
 
-The folder structure breaks down like this:
+## The folder structure breaks down like this:
 
 **local.yml**: This is the Playbook that Ansible expects to find by default in pull-mode, think of it as an "index" of sorts that pulls other Playbooks in.
 
