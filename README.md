@@ -44,4 +44,4 @@ After it's run for the first time manually, this Ansible config creates its own 
 
 ## How do I run it?
 
-<ansible-pull -U https://github.com/Spehof/personal_ansible_config.git>
+`ansible-pull -U https://github.com/Spehof/personal_ansible_config.git`
