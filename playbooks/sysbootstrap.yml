@@ -1,0 +1,172 @@
+---
+- name: Starting Debian Workstation bootstrap
+  hosts: all
+  become: yes
+
+  vars:
+    ansible_become_pass: "'{{ lookup('env', 'ANSIBLE_BECOME_PASS') }}'"
+
+  tasks:
+## STAGE 0 - update and upgrade apt manager
+    - name: Update cache
+      apt:
+        update_cache: yes
+
+    - name: Upgrade server packages
+      apt:
+        upgrade: safe
+## STAGE 1 Install MAIN STUFF for apt correctly working~~
+    - name: Install apt-transport-https
+      apt:
+        name: apt-transport-https
+        state: latest
+
+    - name: Install ca-certificates
+      apt:
+        name: ca-certificates
+        state: latest
+
+    - name: Install software-properties-common
+      apt:
+        name: software-properties-common
+        state: latest
+
+    - name: Install gnupg-agent
+      apt:
+        name: gnupg-agent
+        state: latest
+## ~~~~~~~~~~~~~~~~~~~~apt-get stuff FIRST~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+## apt stuff for installing others
+    - name: Install git VCS obviously
+      apt:
+        name: git
+        state: latest
+
+    - name: Install wget
+      apt:
+        name: wget
+        state: latest
+
+    - name: Install curl
+      apt:
+        name: curl
+        state: latest
+
+    - name: Install snapd for snap packages
+      apt:
+        name: snapd
+        state: latest
+
+    - name: Install pip package manager
+      apt:
+        name: python3-pip
+        state: latest
+
+    - name: Install nodejs
+      apt:
+        name: nodejs
+        state: latest
+
+    - name: Install Node Package Manager
+      apt:
+        name: npm
+        state: latest
+
+    - name: Install virtualenv
+      apt:
+        name: virtualenv
+        state: latest
+
+    - name: Install python3-setuptools
+      apt:
+        name: python3-setuptools
+        state: latest
+
+## apt stuff for system
+
+    - name: Install mosh for stable ssh connection
+      apt:
+        name: mosh
+        state: latest
+
+    - name: Install tmux terminal multiplexer
+      apt:
+        name: tmux
+        state: latest
+
+    - name: Install firefox browser
+      apt:
+        name: firefox
+        state: latest
+
+## Usful CLA utils
+
+    - name: Install some usefull terminal utils\n
+        (rg, htop, xclip, rename, jpegoptim,\n
+         OptiPNG, jq, ffmpeg, tree,\n
+         httpie, fortune, cowsay, yamllint)
+      apt:
+        name:
+          - ripgrep
+          - xclip
+          - rename
+          - jpegoptim
+          - optipng
+          - jq
+          - ffmpeg
+          - tree
+          - httpie
+          - fortune
+          - cowsay
+          - htop
+          - yamllint
+          - trash-cli
+          - nmap
+          - traceroute
+          - xprintidle
+
+        state: latest
+
+    - name: Install pygments for pretty output print
+      pip:
+        name: Pygments
+
+## SNAP stuff
+
+    - name: Install telegram
+      community.general.snap:
+        name: telegram-desktop
+
+    - name: Install VLC media player
+      community.general.snap:
+        name: vlc
+        classic: yes
+
+    - name: Install IntelliJ IDEA
+      community.general.snap:
+        name: intellij-idea-ultimate
+        classic: yes
+
+    - name: Install PyCharm
+      community.general.snap:
+        name: pycharm-professional
+        classic: yes
+
+    - name: Install Postman
+      community.general.snap:
+        name: postman
+
+    - name: Install Slack
+      community.general.snap:
+        name: slack
+        classic: yes
+
+    - name: Install Spotify
+      community.general.snap:
+        name: spotify
+## Clear apt cache ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    - name: Autoremove unused packages
+      command: apt-get -y clean
+      args:
+        warn: no

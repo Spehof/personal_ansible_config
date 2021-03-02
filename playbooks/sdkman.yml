@@ -1,0 +1,25 @@
+---
+- name: Install sysbootstrap
+  hosts: all
+  become: yes
+
+  vars:
+    ansible_become_pass: "{{ lookup('env','ANSIBLE_BECOME_PASS') }}"
+
+  tasks:
+
+    - name: Get stats of a file
+      ansible.builtin.stat:
+        path: /home/roman/.sdkman
+      register: st
+
+    - block: ## ====Install====
+
+      - name: Install SDKman (start initial script from site)
+        shell: curl -s "https://get.sdkman.io" | bash
+          warn: no
+
+      - name: Install SDKman (start initial script from local PC)
+        shell: source "/home/roman/.sdkman/bin/sdkman-init.sh"
+
+      when: st.stat.exists == True
