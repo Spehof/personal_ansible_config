@@ -47,17 +47,17 @@
     - { dir: templates }
     - { dir: scripts }
 
-# Copy my dotfiles to dirs
-- name: users | sf | copy personal config files
+# Copy my dotfiles to dirs .dotfiles
+- name: users | sf | copy personal dotfiles
   tags: dotfiles,dotfiles-sf
   copy:
     src: users/sf/{{ item.src }}
-    dest: /home/sf/{{ item.dest }}
+    dest: {{ path_for_dotfiles }}/{{ item.dest }}
     owner: sf
     group: sf
     mode: 0600
   with_items:
-    - { src: 'config', dest: '.sdkman/etc/config' }
+    - { src: 'config', dest: 'config' }
     - { src: '.zshrc.pre-oh-my-zsh', dest: '.zshrc.pre-oh-my-zsh' }
     - { src: '.zshrc', dest: '.zshrc' }
 
@@ -68,16 +68,16 @@
     - { src: '.gitconfig', dest: '.gitconfig' }
     - { src: '.global_gitignore', dest: '.global_gitignore' }
 
-    - { src: 'gpg.conf', dest: '.gnupg/gpg.conf' }
-    - { src: 'gpg-agent.conf', dest: '.gnupg/gpg-agent.conf' }
+    - { src: 'gpg.conf', dest: 'gpg.conf' }
+    - { src: 'gpg-agent.conf', dest: 'gpg-agent.conf' }
 
     - { src: '.vimrc', dest: '.vimrc' }
 
-    - { src: '.tmux.conf', dest: '.tmux/.tmux.conf' }
-    - { src: '.tmux.conf.local', dest: '.tmux/.tmux.conf.local' }
+    - { src: '.tmux.conf', dest: '.tmux.conf' }
+    - { src: '.tmux.conf.local', dest: '.tmux.conf.local' }
 
-    - { src: '.ansible.cfg', dest: '.ansible/ansible.cfg' }
-    - { src: 'ansible_hosts', dest: '.ansible/hosts' }
+    - { src: '.ansible.cfg', dest: '.ansible.cfg' }
+    - { src: 'ansible_hosts', dest: 'ansible_hosts' }
 
     - { src: '.zsh_aliases', dest: '.zsh_aliases' }
 

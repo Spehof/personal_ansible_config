@@ -18,7 +18,7 @@
   ## system setup
   - import_tasks: system_setup/scripts.yml
   - import_tasks: system_setup/utils.yml
-  - import_tasks: system_setup/simlinks.yml #TODO
+  - import_tasks: system_setup/simlinks.yml
 
   ## install software
   - import_tasks: software/chromium.yml # TODO

@@ -1,1 +1,37 @@
 ---
+## Create simlinks for my dotfiles
+- name: system setup | simlinks | add simlinks to HOME for dotfiles
+  file:
+    src: {{ path_for_dotfiles }}/{{ item.src  }}
+    dest: /home/sf/{{ item.dest }}
+    owner: sf
+    group: sf
+    state: link
+  with_items:
+    - { src: 'config', dest: '.sdkman/etc/config' }
+    - { src: '.zshrc.pre-oh-my-zsh', dest: '.zshrc.pre-oh-my-zsh' }
+    - { src: '.zshrc', dest: '.zshrc' }
+
+    - { src: '.bashrc', dest: '.bashrc' }
+    - { src: '.bash_logout', dest: '.bash_logout' }
+    - { src: '.bash_aliases', dest: '.bash_aliases' }
+
+    - { src: '.gitconfig', dest: '.gitconfig' }
+    - { src: '.global_gitignore', dest: '.global_gitignore' }
+
+    - { src: 'gpg.conf', dest: '.gnupg/gpg.conf' }
+    - { src: 'gpg-agent.conf', dest: '.gnupg/gpg-agent.conf' }
+
+    - { src: '.vimrc', dest: '.vimrc' }
+
+    - { src: '.tmux.conf', dest: '.tmux/.tmux.conf' }
+    - { src: '.tmux.conf.local', dest: '.tmux/.tmux.conf.local' }
+
+    - { src: '.ansible.cfg', dest: '.ansible/ansible.cfg' }
+    - { src: 'ansible_hosts', dest: '.ansible/hosts' }
+
+    - { src: '.zsh_aliases', dest: '.zsh_aliases' }
+
+    - { src: '.profile', dest: '.profile' }
+
+    - { src: '.wakatime.cfg', dest: '.wakatime.cfg' }
