@@ -7,7 +7,7 @@
 - block:
   ## User configs
   # create catalog structure and copy dotfiles
-  - import_tasks: users/sf.yml #TODO
+  - import_tasks: users/sf.yml 
 
 ## desktop environments
 ## now not need
@@ -15,6 +15,7 @@
 
   ## system setup
   - import_tasks: system_setup/scripts.yml #TODO
+  - import_tasks: system_setup/utils.yml
 
   ## install software
   - import_tasks: software/chromium.yml # TODO
@@ -22,6 +23,22 @@
   - import_tasks: software/google_chrome.yml
   - import_tasks: software/spotify.yml
   - import_tasks: software/vlc.yml
+  - import_tasks: software/mosh.yml
+  - import_tasks: software/tmux.yml
+  - import_tasks: software/tmuxinator.yml
+  - import_tasks: software/mongodb.yml
+  - import_tasks: software/postgresql.yml
+  - import_tasks: software/kubectl.yml
+  - import_tasks: software/slack.yml
+  - import_tasks: software/nodejs.yml
+  - import_tasks: software/yarn.yml
+  - import_tasks: software/sublime_merge.yml
+  - import_tasks: software/sublime_text.yml
+  - import_tasks: software/postman.yml
+  - import_tasks: software/intellij-idea-ultimate.yml
+  - import_tasks: software/telegram-desktop.yml
+  - import_tasks: software/docker.yml
+  - import_tasks: software/sdkman.yml
 
   rescue:
     - set_fact: task_failed=true

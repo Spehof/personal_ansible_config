@@ -1,0 +1,31 @@
+---
+- name: system_setup | Install usefull CLI own tools\n
+        (rg, htop, xclip, rename, jpegoptim,\n
+                 OptiPNG, jq, ffmpeg, tree,\n
+         httpie, fortune, cowsay, yamllint)
+    apt:
+      name:
+          - ripgrep
+          - xclip
+          - rename
+          - jpegoptim
+          - optipng
+          - jq
+          - ffmpeg
+          - tree
+          - httpie
+          - fortune
+          - cowsay
+          - htop
+          - yamllint
+          - trash-cli
+          - nmap
+          - traceroute
+          - xprintidle
+
+      state: latest
+
+
+- name: system_setup | pygments
+    pip:
+      name: Pygments

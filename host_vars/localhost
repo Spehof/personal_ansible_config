@@ -1,0 +1,43 @@
+---
+branch: master
+
+# ansible_cron_minute: "*/5"
+# ssh_port: 22
+# ssh_users: "user1 user2"
+
+# platform-specific
+ansible_python_interpreter: /usr/bin/python3
+
+# app defaults
+# gui_editor: 
+# terminal_emulator: 
+# web_browser: flatpak run org.mozilla.firefox
+
+# application selection
+
+chromium: true
+firefox: true
+spotify: true
+vlc: true
+mosh: true
+tmux: true
+tmuxinator: true
+mongodb: true
+postgresql: true
+kubectl: true
+slack: true
+nodejs: true
+yarn: true
+sublime_merge: true
+sublime_text: true
+postman: true
+intellij-idea-ultimate: true
+telegram-desktop: true
+docker: true
+sdkman: true
+
+
+
+# desktop environment selection
+# gnome: true
+# mate: false

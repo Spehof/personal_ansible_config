@@ -1,0 +1,89 @@
+---
+# Clean default dirs
+- name: users | sf | remove preinstalled clutter from home directory
+  file:
+    path: /home/sf/{{ item }}
+    state: absent
+  with_items:
+    - examples.desktop
+    - Desktop
+    - Documents
+    - Downloads
+    - Music
+    - Pictures
+    - Public
+    - Templates
+    - Videos
+
+# Create my dirs structure
+- name: users | sf | create personal config directories
+  tags: dotfiles,dotfiles-jay
+  file:
+    path: /home/sf/{{ item.dir }}
+    state: directory
+    owner: sf
+    group: sf
+    mode: 0700
+  with_items:
+    - { dir: .config }
+    - { dir: .config/autostart }
+    - { dir: .local }
+    - { dir: .local/share }
+    - { dir: .local/share/applications }
+    - { dir: .dotfiles }
+    - { dir: .tmux }
+    - { dir: .sdkman }
+    - { dir: .gnupg }
+    - { dir: .ansible }
+    - { dir: .tmp }
+    - { dir: .ssh/Git }
+    - { dir: .ssh/Ansible }
+
+    - { dir: bin }
+    - { dir: desktop }
+    - { dir: documents }
+    - { dir: downloads }
+    - { dir: projects }
+    - { dir: templates }
+    - { dir: scripts }
+
+# Copy my dotfiles to dirs
+- name: users | sf | copy personal config files
+  tags: dotfiles,dotfiles-sf
+  copy:
+    src: users/sf/{{ item.src }}
+    dest: /home/sf/{{ item.dest }}
+    owner: sf
+    group: sf
+    mode: 0600
+  with_items:
+    - { src: 'config', dest: '.sdkman/etc/config' }
+    - { src: '.zshrc.pre-oh-my-zsh', dest: '.zshrc.pre-oh-my-zsh' }
+    - { src: '.zshrc', dest: '.zshrc' }
+
+    - { src: '.bashrc', dest: '.bashrc' }
+    - { src: '.bash_logout', dest: '.bash_logout' }
+    - { src: '.bash_aliases', dest: '.bash_aliases' }
+
+    - { src: '.gitconfig', dest: '.gitconfig' }
+    - { src: '.global_gitignore', dest: '.global_gitignore' }
+
+    - { src: 'gpg.conf', dest: '.gnupg/gpg.conf' }
+    - { src: 'gpg-agent.conf', dest: '.gnupg/gpg-agent.conf' }
+
+    - { src: '.vimrc', dest: '.vimrc' }
+
+    - { src: '.tmux.conf', dest: '.tmux/.tmux.conf' }
+    - { src: '.tmux.conf.local', dest: '.tmux/.tmux.conf.local' }
+
+    - { src: '.ansible.cfg', dest: '.ansible/ansible.cfg' }
+    - { src: 'ansible_hosts', dest: '.ansible/hosts' }
+
+    - { src: '.zsh_aliases', dest: '.zsh_aliases' }
+
+    - { src: '.profile', dest: '.profile' }
+
+    - { src: '.wakatime.cfg', dest: '.wakatime.cfg' }
+
+
+
