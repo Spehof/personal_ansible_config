@@ -5,20 +5,20 @@
 1. I uses Ansible pull.
 
 2. Ansible check this Playbook - local.yml and starting it.
-	1. First of all "tasks to complete before running roles" (update cache etc.)
-	2. Run roles "base" for all hosts  (default configs, users, etc.)
-	3. Ryn role "workstation" for machine from hosts file, also run role "server"
-	4. When the roles have done their job starting "end of run cleanup and reporting" (cleanup package cache, etc.)
-	5. And after all starting check completion status and send completion alert
+	* First of all "tasks to complete before running roles" (update cache etc.)
+	* Run roles "base" for all hosts  (default configs, users, etc.)
+	* Ryn role "workstation" for machine from hosts file, also run role "server"
+	* When the roles have done their job starting "end of run cleanup and reporting" (cleanup package cache, etc.)
+	* And after all starting check completion status and send completion alert
 		* "send_completion_alert" - send succsess alert in Telegram (you can also add sending to web etc.)
 		* "send_failure_alert" - according send failure alert and clear cache (rm -rf \~/.ansible)
 		* p.s. telegram chat id and telegram token - group_vars/all (can use sys vars or Vault)
 
 3. Each role has role/tasks main.yml file. It does "include" and "import" all vars and tasks from all dirs
-	1. Users/{{ user }} - config user home directory
-	2. Configure desktop environments (mate or gnome using condition)
-	3. Starting system setup (autofs, scripts, tweaks ...)
-	4. After doing install software (installing common software for user workstation)
+	* Users/{{ user }} - config user home directory
+	* Configure desktop environments (mate or gnome using condition)
+	* Starting system setup (autofs, scripts, tweaks ...)
+	* After doing install software (installing common software for user workstation)
 
 
 ## The folder structure breaks down like this:
