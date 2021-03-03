@@ -1,0 +1,11 @@
+---
+- name: software | mosh | install packages
+  tags: mosh
+  become_user: sf
+  package:
+    name:
+      - mosh
+    state: latest
+  when:
+    - mosh is defined
+    - mosh == true

@@ -1,10 +1,11 @@
+---
 - name: software | vlc | install package
-  tags: packages,flatpak,vlc,workstation-packages
-  become_user: roman
-  flatpak:
-    name: org.videolan.VLC
-    method: user
+  tags: packages,snap,vlc,workstation-packages
+  become_user: sf
+  snap:
+    name: vlc
     state: present
+    classic: yes
   when:
     - vlc is defined
     - vlc == true

@@ -1,0 +1,10 @@
+---
+- name: software | telegram | install snap package
+  tags: packages,telegram,snap,workstation-packages
+  become_user: sf
+  snap:
+    name:  telegram-desktop
+    state: present
+  when:
+    - telegram-desktop is defined
+    - telegram-desktop == true

@@ -1,0 +1,11 @@
+---
+- name: software | intellij-idea-ultimate | install package
+  tags: packages,snap,intellij-idea-ultimate,workstation-packages
+  become_user: sf
+  snap:
+    name: intellij-idea-ultimate
+    state: present
+    classic: yes
+  when:
+    - intellij-idea-ultimate is defined
+    - intellij-idea-ultimate == true

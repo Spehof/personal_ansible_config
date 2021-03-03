@@ -1,0 +1,11 @@
+---
+- name: software | tmux | install syncthing packages
+  tags: tmux
+  become_user: sf
+  package:
+    name:
+      - tmux
+    state: latest
+  when:
+    - tmux is defined
+    - tmux == true

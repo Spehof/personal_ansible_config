@@ -32,6 +32,7 @@ sublime_merge: true
 sublime_text: true
 postman: true
 intellij-idea-ultimate: true
+pycharm-professional: true
 telegram-desktop: true
 docker: true
 sdkman: true

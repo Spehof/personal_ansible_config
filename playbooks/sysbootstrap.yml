@@ -16,70 +16,70 @@
       apt:
         upgrade: safe
 ## STAGE 1 Install MAIN STUFF for apt correctly working~~
-    - name: Install apt-transport-https
+    - name: Install apt-transport-https +
       apt:
         name: apt-transport-https
         state: latest
 
     - name: Install ca-certificates
       apt:
-        name: ca-certificates
+        name: ca-certificates +
         state: latest
 
     - name: Install software-properties-common
       apt:
-        name: software-properties-common
+        name: software-properties-common +
         state: latest
 
     - name: Install gnupg-agent
       apt:
-        name: gnupg-agent
+        name: gnupg-agent +
         state: latest
 ## ~~~~~~~~~~~~~~~~~~~~apt-get stuff FIRST~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ## apt stuff for installing others
     - name: Install git VCS obviously
       apt:
-        name: git
+        name: git +
         state: latest
 
-    - name: Install wget
+    - name: Install wget +
       apt:
-        name: wget
+        name: wget +
         state: latest
 
     - name: Install curl
       apt:
-        name: curl
+        name: curl +
         state: latest
 
     - name: Install snapd for snap packages
       apt:
-        name: snapd
+        name: snapd +
         state: latest
 
     - name: Install pip package manager
       apt:
-        name: python3-pip
+        name: python3-pip +
         state: latest
 
     - name: Install nodejs
       apt:
-        name: nodejs
+        name: nodejs +
         state: latest
 
     - name: Install Node Package Manager
       apt:
-        name: npm
+        name: npm +
         state: latest
 
     - name: Install virtualenv
       apt:
-        name: virtualenv
+        name: virtualenv +
         state: latest
 
     - name: Install python3-setuptools
       apt:
-        name: python3-setuptools
+        name: python3-setuptools +
         state: latest
 
 ## apt stuff for system

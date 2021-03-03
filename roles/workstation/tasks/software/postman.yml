@@ -1,0 +1,10 @@
+---
+- name: software | postman | install package
+  tags: packages,snap,postman,workstation-packages
+  become_user: sf
+  snap:
+    name: postman
+    state: present
+  when:
+    - postman is defined
+    - postman == true

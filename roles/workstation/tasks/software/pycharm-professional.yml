@@ -1,0 +1,11 @@
+---
+- name: software | pycharm-professional | install package
+  tags: packages,snap,pycharm-professional,workstation-packages
+  become_user: sf
+  snap:
+    name: pycharm-professional
+    state: present
+    classic: yes
+  when:
+    - pycharm-professional is defined
+    - pycharm-professional == true

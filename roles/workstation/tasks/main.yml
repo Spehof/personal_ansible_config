@@ -39,6 +39,7 @@
   - import_tasks: software/sublime_text.yml
   - import_tasks: software/postman.yml
   - import_tasks: software/intellij-idea-ultimate.yml
+  - import_tasks: software/pycharm-professional.yml
   - import_tasks: software/telegram-desktop.yml
   - import_tasks: software/docker.yml
   - import_tasks: software/sdkman.yml

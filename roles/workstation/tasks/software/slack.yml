@@ -1,0 +1,11 @@
+---
+- name: software | slack | install package
+  tags: packages,snap,slack,workstation-packages
+  become_user: sf
+  snap:
+    name: slack
+    state: present
+    classic: yes
+  when:
+    - slack is defined
+    - slack == true
