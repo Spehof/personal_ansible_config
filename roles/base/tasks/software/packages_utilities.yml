@@ -1,0 +1,36 @@
+- name: system setup | utilities | install utility packages
+  tags: packages,system,settings
+  package:
+    state: latest
+    name:
+      - at
+      - colordiff
+      - curl
+      - htop
+      - lsof
+      - mc
+      - mosh
+      - ncdu
+      - neofetch
+      - net-tools
+      - nmap
+      - rsync
+      - screen
+      - sshfs
+      - tmux
+      - traceroute
+      - wget
+      - whois
+      - zsh
+      - ripgrep
+      - rename
+      - tree
+
+- name: system setup | utilities | install man-pages (arch)
+  tags: packages,system,settings
+  pacman:
+    state: latest
+    name:
+      - man-db
+      - man-pages
+  when: ansible_distribution == "Archlinux"

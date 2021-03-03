@@ -1,2 +1,9 @@
 ---
 # handlers file for base
+- name: apt_update
+  apt: update_cache=yes
+
+- name: restart_sshd
+  service:
+    name: "{{ openssh_service }}"
+    state: restarted

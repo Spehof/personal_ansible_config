@@ -1,0 +1,19 @@
+- name: system setup | development packages | install packages
+  tags: dev,development,packages,python,ruby
+  package:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - software-properties-common
+      - gnupg-agent
+      - curl
+      - snapd
+      - python3-pip
+      - nodejs
+      - npm
+      - virtualenv
+      - python3-setuptools
+      - git
+      - wget
+
+    state: latest
