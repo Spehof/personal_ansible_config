@@ -6,7 +6,9 @@
 # tasks file for workstation
 - block:
   ## User configs
-  # create catalog structure and copy dotfiles
+  # Del defolt catalogs
+  # Create my catalog structure
+  # Copy dotfiles from files/users/sf
   - import_tasks: users/sf.yml 
 
 ## desktop environments
@@ -14,8 +16,9 @@
 
 
   ## system setup
-  - import_tasks: system_setup/scripts.yml #TODO
+  - import_tasks: system_setup/scripts.yml
   - import_tasks: system_setup/utils.yml
+  - import_tasks: system_setup/simlinks.yml #TODO
 
   ## install software
   - import_tasks: software/chromium.yml # TODO

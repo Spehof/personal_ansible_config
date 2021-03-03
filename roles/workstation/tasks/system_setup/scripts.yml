@@ -1,1 +1,16 @@
 ---
+- name: system setup | scripts | copy my custom scripts
+  tags: distro-setup
+  copy:
+    src: scripts/{{ item.src  }}
+    dest: {{ path_for_scripts }}/{{ item.dest }}
+    owner: root
+    group: root
+    mode: 0755
+  with_items:
+    - { src: 'backup.sh', dest: 'backup.sh' }
+    - { src: 'extract.sh', dest: 'extract.sh' }
+    - { src: 'gpgtar.sh', dest: 'gpgtar.sh' }
+    - { src: 'lsfiles.sh', dest: 'lsfiles.sh' }
+    - { src: 'restore_data.sh', dest: 'restore_data.sh' }
+    - { src: 'sysBootstrap.sh', dest: 'sysBootstrap.sh' }
