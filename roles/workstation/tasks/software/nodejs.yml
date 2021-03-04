@@ -1,11 +1,11 @@
 ---
 - name: software | nodejs | install packages
-  tags: mosh
+  tags: nodejs
   become_user: sf
   package:
     name:
-      - mosh
+      - nodejs
     state: latest
   when:
-    - mosh is defined
-    - mosh == true
+    - nodejs is defined
+    - nodejs == true

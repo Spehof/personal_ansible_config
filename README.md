@@ -58,6 +58,6 @@ After it's run for the first time manually, this Ansible config creates its own 
 
 ## How do I run it?
 
-it's command pull a playbook from a VCS and execute a default local.yml playbook:
+It's command pull a playbook from a VCS and execute a default local.yml playbook:
 
 `ansible-pull -U https://github.com/Spehof/personal_ansible_config.git`
