@@ -1,3 +1,25 @@
 ---
 path_for_scripts: /home/sf/skripts
 path_for_dotfiles: /home/sf/.dotfiles
+
+user_workstation: sf
+
+# Default user/group owner of the SDKMAN directory is determined by
+# `ansible_user_id' and `ansible_user_gid', respectively.
+# They can be overidden with the following variables.
+sdkman_user: sf
+sdkman_group: sf
+# The directory in which to download the SDKMAN initialization script.
+sdkman_tmp_dir: /tmp
+# Validate SSL when downloading init script?
+# This is different from `sdkman_insecure_ssl' (see below).
+sdkman_validate_ssl: true
+
+# vars file for ansible-sdkman
+system_packages:
+  - curl
+  - debianutils
+  - findutils
+  - tar
+  - unzip
+  - zip
