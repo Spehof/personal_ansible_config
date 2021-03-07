@@ -1,0 +1,12 @@
+---
+ - include: sublime_text/Debian.yml
+   when: 
+    - sublime_text is defined
+    - sublime_text == true
+    - ansible_os_family in ['Debian', 'Linuxmint']
+
+ - include: sublime_text/MacOSX.yml
+   when: 
+    - sublime_text is defined
+    - sublime_text == true
+    - ansible_distribution == 'MacOSX'

@@ -1,0 +1,8 @@
+---
+- name: Install sublime-merge
+  package:
+    name: sublime-merge
+    state: present
+  when:
+    - sublime_merge is defined
+    - sublime_merge== true
