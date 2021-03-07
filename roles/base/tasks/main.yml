@@ -6,7 +6,7 @@
 
 - block:
   # Make sure users exist on the system
-  - import_tasks: users/roman.yml
+  - import_tasks: users/sf.yml
   - import_tasks: users/root.yml
 
   # install software

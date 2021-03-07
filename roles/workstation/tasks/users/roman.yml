@@ -17,7 +17,7 @@
 
 # Create my dirs structure
 - name: users | sf | create personal config directories
-  tags: dotfiles,dotfiles-jay
+  tags: dotfiles,dotfiles-sf
   file:
     path: /home/sf/{{ item.dir }}
     state: directory
