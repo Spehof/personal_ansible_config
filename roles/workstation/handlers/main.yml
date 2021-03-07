@@ -7,3 +7,7 @@
   file:
     path: '{{ sdkman_tmp_dir }}/sdkman_script'
     state: absent
+
+# handler for restart docker daemon if the docker package is updated
+- name: restart docker
+  service: "name=docker state={{ docker_restart_handler_state }}"
