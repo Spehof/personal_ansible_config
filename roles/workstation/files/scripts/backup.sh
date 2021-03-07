@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BACKUP_HOME="/media/roman/CPBA_X64FRE1/backup_HOME"
+BACKUP_HOME="/media/sf/CPBA_X64FRE1/backup_HOME"
 NOW=$(date +%Y-%m-%d-%H-%M)
 MNOW=$(date +%Y-%m)
 
@@ -31,18 +31,18 @@ fi
 function processing_backup {
 
 		tar \
-	--exclude='/home/roman/.dropbox-dist' \
-	--exclude='/home/roman/Dropbox' \
-	--exclude='/home/roman/Downloads' \
-	--exclude='/home/roman/.cache' \
-	--exclude='/home/roman/.dropbox' \
-	--exclude='/home/roman/Desktop' \
-	--exclude='/home/roman/.android' \
-	--exclude='/home/roman/.cache' \
-	--exclude='/home/roman/.local/share/Trash' \
+	--exclude='/home/sf/.dropbox-dist' \
+	--exclude='/home/sf/Dropbox' \
+	--exclude='/home/sf/Downloads' \
+	--exclude='/home/sf/.cache' \
+	--exclude='/home/sf/.dropbox' \
+	--exclude='/home/sf/Desktop' \
+	--exclude='/home/sf/.android' \
+	--exclude='/home/sf/.cache' \
+	--exclude='/home/sf/.local/share/Trash' \
 	-z --create --file $BACKUP_HOME/${MNOW}-${WEEK_OF_MONTH}_WEEK/$NOW.tar.gz \
 	--listed-incremental=$BACKUP_HOME/${MNOW}-${WEEK_OF_MONTH}_WEEK/${WEEK_OF_MONTH}st_WEEK.snar \
-	--absolute-names /home/roman 
+	--absolute-names /home/sf 
 }
 
 function create_backup_dir {
