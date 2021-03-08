@@ -1,5 +1,5 @@
 ---
-- name: Install sublime-merge
+- name: software | sublime_merge | install package
   package:
     name: sublime-merge
     state: present
