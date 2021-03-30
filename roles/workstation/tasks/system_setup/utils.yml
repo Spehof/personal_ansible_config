@@ -2,7 +2,7 @@
 - name: system_setup | Install usefull CLI own tools\n
         (rg, htop, xclip, rename, jpegoptim,\n
                  OptiPNG, jq, ffmpeg, tree,\n
-         httpie, fortune, cowsay, yamllint)
+         httpie, fortune, cowsay, yamllint, flameshot)
     apt:
       name:
           - ripgrep
@@ -31,3 +31,7 @@
 - name: system_setup | pygments
     pip:
       name: Pygments
+
+# TODO setup shortkeys for flameshot
+# - name: system_setup | set new shortcats for flameshot
+#   ansible.builtin.shell: /usr/bin/flameshot gui 
