@@ -22,6 +22,8 @@
           - nmap
           - traceroute
           - xprintidle
+          # https://github.com/flameshot-org/flameshot/
+          - flameshot
 
       state: latest
 
