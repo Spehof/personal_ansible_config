@@ -1,0 +1,12 @@
+- block: # workaround, see https://stackoverflow.com/a/56558842
+        - name: software | postgresql | install postgresql for debian
+          include_role:
+            name: ANXS.postgresql
+          vars:
+            postgresql_users:
+              - name: {{postgresql_name}}
+              - password: {{postgresql_password}}
+          when: 
+            - postgresql is defined
+            - postgresql == true
+      become: true
